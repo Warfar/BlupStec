@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/usuarios.css">
+    <title>Listado de Tickets</title>
+</head>
+
+<body>
+    <div class="Menu_principal">
+        <div class="contenedor_izq">
+            <div class="Menu logo" onclick="AbrirMenu()">☰ <a href="#">BlupS</a><span class="arcticons--tec"></span>
+            </div>
+        </div>
+        <ul class="contenedorlist_items">
+            <img class="perfil_img" th:src="@{/uploads/{foto}(foto=${setPerfil})}"> <b class="resaltado"
+                th:text="${setRol}"></b>
+            <li class="list_itemss"><a href=""><span class="lets-icons--search-alt-light search"></span></a></li>
+            <li class="list_itemss"><a href=""><span class="quill--chat"></span></a></li>
+            <li class="list_itemss"><a href=""><span class="carbon--help"></span></a></li>
+            <li class="list_itemss"><a href=""><span class="mynaui--config"></span></a></li>
+        </ul>
+    </div>
+    <nav class="navegacion" id="navegacion">
+        <div class="cerrar" id="cerrar">x</div>
+        <ul class="ul_list">
+            <li class="list_items"><span class="material-symbols-light--home-outline"></span><a
+                    href="/inicio">Inicio</a></li>
+            <li class="list_items"><span class="flowbite--users-outline"></span><a
+                    href="/usuarios">Usuarios</a></li>
+            <li class="list_items"><span class="lets-icons--ticket-duotone"></span><a
+                    href="/tickets">Ticket</a></li>
+            <li class="list_items"><span class="streamline-cyber--headset-user"></span><a href="#">Soporte Tecnico</a>
+            </li>
+            <li class="list_items"><span class="material-symbols--dashboard"></span><a
+                    href="/dashboard">Dashboard</a></li>
+            <li class="list_items"><span class="pajamas--leave"></span><a href="../templates/login.html">Salir</a></li>
+        </ul>
+    </nav>
+
+    <div class="modal-overlay" id="modal_overlay">
+        <div class="modal">
+            <h2 class="modal-title">Registro de Usuario</h2>
+            <form id="formRegistro" class="modal-form" enctype="multipart/form-data" method="post" action="/usuarios">
+                <!-- Imagen de perfil -->
+                <div class="actualizar_perfil">
+                    <label for="imagenPerfil" class="profile-label">
+
+                        <img id="previewImg" src="/img/default.png" alt="Foto de perfil" />
+                        <input type="file" id="imagenPerfil" name="fotoperfil" accept="image/*" />
+
+                    </label>
+                    <span class="profile-hint">Haz clic para cambiar foto</span>
+                </div>
+
+                <div class="form_flex">
+                    <div class="input_grid">
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre" />
+                        <input type="password" name="password" id="password" placeholder="Contraseña" />
+                        <input type="email" name="email" id="email" placeholder="Correo" />
+                        <input type="text" name="username" id="username" placeholder="Nombre de usuario" />
+                        <input type="tel" name="telefono" id="Telefono" placeholder="Teléfono" />
+                        <select name="rol">
+                            <option value="rol">Selecciona un rol</option>
+                            <option value="ADMIN">ADMIN</option>
+                            <option value="TECNICO">TECNICO</option>
+                            <option value="CLIENTE">CLIENTE</option>
+                        </select>
+                    </div>
+                </div>
+
+            </form>
+            <div class="botones">
+                <button type="submit" class="btn-submit" form="formRegistro">Registrar</button>
+                <button type="button" class="btn-submit salir" onclick="cerrarModal()">Salir</button>
+
+            </div>
+        </div>
+    </div>
+
+    <section class="Crud_usuario">
+        <div class="contenedor_usuario">
+            <div class="propiedades_usuario">
+                <div class="flex_usuario_icons">
+                    <h2 class="list_usuario">Listado de Usuarios</h2>
+                    <span class="la--users-cog"></span>
+                </div>
+                <div class="flex_usuario_propiedadez">
+                    <button class="btn_agregar" title="Agregar Usuario" onclick="abrirModal()"><span
+                            class="basil--add-outline"></span></button>
+                    <button class="btn_filtro" title="Ordenar por..."><span
+                            class="stash--filter-duotone" id="filtroOrden"></span>
+                        </button>
+                    <div class="boton_input">
+                        <input class="buscar_usuario" type="text" name="buscar" id="buscar" placeholder="Buscar...">
+                        <button class="btn_buscar">
+                            <span class="icon-park-outline--search icons"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabla_scroll">
+                <table class="tabla_usuario" id="tablausuario">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Perfil</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Usuario</th>
+                            <th>Password</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Telefono</th>
+                            <th>Fecha</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usuariosBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Paginacion de Contenedor de tickets-->
+    <div class="paginacion" id="paginacion">
+        <button class="btn_pagina" id="prev"> « Anterior</button>
+        <div class="paginacion_numeros" id="paginaNumeros">
+            <!--Numeros llenado por backend-->
+        </div>
+        <button class="btn_pagina" id="next">Siguiente »</button>
+    </div>
+
+    <script src="/JS/usuarios.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/tickets.css">
+    <title>Listado de Tickets</title>
+</head>
+
+<body>
+    <div class="Menu_principal">
+        <div class="contenedor_izq">
+            <div class="Menu logo" onclick="AbrirMenu()">☰ <a href="#">BlupS</a><span class="arcticons--tec"></span>
+            </div>
+        </div>
+        <ul class="contenedorlist_items">
+            <img class="perfil_img" th:src="@{/uploads/{foto}(foto=${setPerfil})}"  alt="Foto de perfil"> <b class="resaltado" td:text = "${setRol}"></b>
+            <li class="list_itemss"><a href=""><span class="lets-icons--search-alt-light search"></span></a></li>
+            <li class="list_itemss"><a href=""><span class="quill--chat"></span></a></li>
+            <li class="list_itemss"><a href=""><span class="carbon--help"></span></a></li>
+            <li class="list_itemss"><a href=""><span class="mynaui--config"></span></a></li>
+        </ul>
+    </div>
+    <nav class="navegacion" id="navegacion">
+        <div class="cerrar" id="cerrar">x</div>
+        <ul class="ul_list">
+            <li class="list_items"><span class="material-symbols-light--home-outline"></span><a href="/inicio">Inicio</a></li>
+            <li class="list_items"><span class="flowbite--users-outline"></span><a href="/usuarios">Usuarios</a></li>
+            <li class="list_items"><span class="lets-icons--ticket-duotone"></span><a href="/tickets">Ticket</a></li>
+            <li class="list_items"><span class="streamline-cyber--headset-user"></span><a href="#">Soporte Tecnico</a></li>
+            <li class="list_items"><span class="material-symbols--dashboard"></span><a href="/dashboard">Dashboard</a></li>
+            <li class="list_items"><span class="pajamas--leave"></span><a href="/login">Salir</a></li>
+        </ul>
+    </nav>
+
+    <section class="Crud_tickets">
+        <div class="contenedor_tickets">
+            <div class="propiedades_tickets">
+                <div class="flex_tickets_icons">
+                    <h2 class="list_tickets">Listado de Tickets</h2>
+                    <span class="streamline-color--tickets"></span>
+                </div>
+                <div class="flex_tickets_propiedadez">
+                     <button class="btn_agregar" title="Agregar Usuario"><span class="basil--add-outline"></span></button>
+                    <button class="btn_filtro" title="Ordenar por..."><span class="stash--filter-duotone"></span>Ordenar</button>
+                    <div class="boton_input">
+                        <input class="buscar_tickets" type="text" name="buscar" id="buscar" placeholder="Buscar...">
+                        <button class="btn_buscar">
+                            <span class="icon-park-outline--search icons"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabla_scroll">
+                <table class="tabla_tickets" id="tablaTickets">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Título</th>
+                            <th>Estado</th>
+                            <th>Prioridad</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Teléfono</th>
+                            <th>Fecha</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ticketsBody">
+                        <tr>
+                            <td>0</td>
+                            <td>backend</td>
+                            <td>backend</td>
+                            <td>backend</td>
+                            <td>backend</td>
+                            <td>backend</td>
+                            <td>backend</td>
+                            <td>backend</td>
+                            <td>
+                                <div class="accion" id="accion">
+                                    <button class="editar"><span class="material-symbols-light--edit-outline"></span></button>
+                                    <button class="eliminar"><span class="ic--outline-delete"></span></button>
+                                </div>
+                            </td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+     <!--Paginacion de Contenedor de tickets-->
+    <div class="paginacion" id="paginacion">
+        <button class="btn_pagina" id="prev"> « Anterior</button>
+        <div class="paginacion_numeros" id="paginaNumeros">
+            <!--Numeros llenado por backend-->
+        </div>
+        <button class="btn_pagina" id="next">Siguiente »</button>
+    </div>
+
+    <script src="/JS/tickets.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/Login.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <div class="login_texto">Login</div>
+
+        <form action="/login" method="post">
+            <div class="items_input">
+                <div class="input_email input_con_icono">
+                    <i class="fas fa-envelope"></i>
+                    <input name="email" type="email" placeholder="Ingrese un correo">
+                </div>
+                <div class="input_password input_con_icono">
+                    <i class="fas fa-lock"></i>
+                    <input name="password" type="password" placeholder="Ingrese una contraseña">
+                </div>
+            </div>
+            <div class="items_lista">
+                <label class="checkbox-group">
+                    <input type="checkbox">
+                    <span>Recuerdame</span>
+                </label>
+                <a href="#">Haz olvidado tu contraseña?</a>
+            </div>
+            <div class="btn">
+                <button>Login</button>
+            </div>
+
+        </form>
+        <div class="sinCuenta">
+            <h3>No tienes una cuenta?</h3>
+            <a href="#">Comunicate con el Admin</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

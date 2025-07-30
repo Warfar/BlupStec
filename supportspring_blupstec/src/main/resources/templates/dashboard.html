@@ -1,0 +1,150 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/dashboard.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="Menu_principal">
+        <div class="contenedor_izq">
+            <div class="Menu logo" onclick="AbrirMenu()">☰ <a href="#">BlupS</a><span class="arcticons--tec"></span>
+            </div>
+        </div>
+        <ul class="contenedorlist_items">
+            <img class="perfil_img" th:src="@{/uploads/{foto}(foto=${setPerfil})}"  alt="Foto de perfil" > <b class="resaltado" th:text = "${setRol}"></b>
+            <li class="list_itemss"><a href="#"><span class="material-symbols--notifications-outline"></span></a></li>
+            <li class="list_itemss"><a href="#"><span class="lets-icons--search-alt-light"></span></a></li>
+            <li class="list_itemss"><a href="#"><span class="quill--chat"></span></a></li>
+            <li class="list_itemss"><a href="#"><span class="carbon--help"></span></a></li>
+            <li class="list_itemss"><a href="#"><span class="mynaui--config"></span></a></li>
+        </ul>
+    </div>
+    <nav class="navegacion" id="navegacion">
+        <div class="cerrar" id="cerrar">x</div>
+        <ul class="ul_list">
+            <li class="list_items"><span class="material-symbols-light--home-outline"></span><a
+                    href="/inicio">Inico</a></li>
+            <li class="list_items"><span class="material-icon-theme--folder-admin"></span><a
+                    href="/usuarios">Usuarios</a></li>
+            <li class="list_items"><span class="lets-icons--ticket-duotone"></span><a
+                    href="/tickets">Ticket</a></li>
+            <li class="list_items"><span class="streamline-cyber--headset-user"></span><a href="">Soporte Tecnico</a>
+            </li>
+            <li class="list_items"><span class="material-symbols--dashboard"></span><a
+                    href="/dashboard">Dashboard</a></li>
+            <li class="list_items"><span class="pajamas--leave"></span><a href="#">Salir</a></li>
+        </ul>
+    </nav>
+
+    <section class="dashboard">
+        <div class="box_dashboard">
+            <h2 class="titulo_dashboard">Dashboard</h2>
+        </div>
+
+        <div class="contenedor_tickets ">
+            <div class="box_tickets t1">
+                <div class="box_title">
+                    <h2>TICKETS COMPLETADOS</h2>
+                </div>
+                <div class="box_numero">
+                    <h2>255</h2>
+                    <div class="box_barra"></div>
+                    <div class="box_porcenaje">
+                        <p>23%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box_tickets t2">
+                <div class="box_title">
+                    <h2>TICKETS EN PROCESO</h2>
+                </div>
+                <div class="box_numero">
+                    <h2>255</h2>
+                    <div class="box_barar"></div>
+                    <div class="box_porcenaje">
+                        <p>23%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box_tickets t3">
+                <div class="box_title">
+                    <h2>TICKETS ANULADOS</h2>
+                </div>
+                <div class="box_numero">
+                    <h2>255</h2>
+                </div>
+                <div class="box_barar"></div>
+                <div class="box_porcenaje">
+                    <p>23%</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenedor_grafica">
+            <div class="grafica_estadisticas">
+                <div class="grafica_subtitulo">
+                    <h2>DESENPEÑO DEL SERVICIO</h2>
+                    <div class="selector_anio">
+                        <label for="anio">Año:</label>
+                        <select id="anio" onchange="actualizarGrafica()">
+                            <option value="2023">2023</option>
+                            <option value="2024" selected>2024</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="box_grafica">
+                    <div class="grafica">
+                        <canvas id="graficaTickets"></canvas>
+
+                    </div>
+                </div>
+            </div>
+            <div class="box_Servidor">
+                <div class="servidor_subtitulos flex_servidor">
+                    <h2>Estado del Servidor<span class="circum--server"></span></h2>
+                </div>
+                <div class="estado_contenedor">
+                    <div class="estado_item">
+                        <p class="estado_titulo">CPU</p>
+                        <div class="barra_estado">
+                            <div class="progreso" style="width: 70%"></div>
+                        </div>
+                        <p class="porcentaje">70%</p>
+                    </div>
+
+                    <div class="estado_item">
+                        <p class="estado_titulo">Memoria</p>
+                        <div class="barra_estado">
+                            <div class="progreso" style="width: 55%"></div>
+                        </div>
+                        <p class="porcentaje">55%</p>
+                    </div>
+
+                    <div class="estado_item">
+                        <p class="estado_titulo">Red</p>
+                        <div class="barra_estado">
+                            <div class="progreso" style="width: 30%"></div>
+                        </div>
+                        <p class="porcentaje">30%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 BlupS - Todos los derechos reservados</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/JS/dashboard.js"></script>
+
+</body>
+
+</html>

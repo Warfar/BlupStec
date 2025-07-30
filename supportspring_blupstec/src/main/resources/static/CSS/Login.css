@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* <-- Esto centra verticalmente */
+    background-color: #111827; /* Fondo oscuro general */
+}
+
+.contenedor {
+    color: white;
+    background-color: rgb(31, 41, 55);
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.login_texto {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.items_input {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+input[type="email"],
+input[type="password"] {
+    background-color: rgb(55, 65, 81);
+    border: none;
+    border-bottom: 2px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+.input_con_icono {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input_con_icono i{
+    position: absolute;
+    left: 10px;
+    color: #ccc;
+    font-size: 16px;
+}
+
+.input_con_icono input{
+    padding-left: 35px;
+    width: 100%;
+}
+
+.items_lista {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.items_lista a {
+    color: #60a5fa;
+    text-decoration: none;
+}
+
+.sinCuenta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.sinCuenta a {
+    color: #93c5fd;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+button {
+    background-image: linear-gradient(to right, rgb(99, 102, 241), rgb(59, 130, 246));
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
